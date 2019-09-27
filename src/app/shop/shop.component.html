@@ -1,0 +1,9 @@
+<div class="shop">
+    <h1 class="page--heading">Shop our Products</h1>
+    <section class="product--section">
+        <app-listing *ngFor="let item of items"
+            [item]="item"
+            (key)="addItem($event)">
+        </app-listing>
+    </section>
+</div>

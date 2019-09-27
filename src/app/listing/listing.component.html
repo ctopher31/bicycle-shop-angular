@@ -1,0 +1,10 @@
+<div class="listing--container">
+    <ul>
+        <li>Number: {{ item.number }}</li>
+        <li>Name: {{ item.name }}</li>
+        <li>Price: ${{ item.price.toFixed(2) }}</li>
+        <li class="{{ item.onSale === false ? 'hide' : 'on-sale' }}">{{ item.onSale === false ? '' : 'On Sale' }}</li>
+        <li class="{{ item.onSale === false ? 'hide' : 'on-sale' }}">Sale Price: ${{ item.salePrice.toFixed(2) }}</li>
+    </ul>
+    <button (click)="addItem(item.number)">Add to Cart</button>
+</div>

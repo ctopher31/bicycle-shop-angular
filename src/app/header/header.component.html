@@ -1,0 +1,18 @@
+<div class="brand--container">
+    <img class="brand--logo" src="/assets/bicycle.jpg" alt="Brand Logo" />
+    <a class="brand--link" [routerLink]="['/']">Bicycle Shop</a>
+</div>
+<nav class="nav primary-nav">
+    <ul class="nav--list primary-nav--list">
+        <li>
+            <a class="nav--link" [routerLink]="['/']">Products</a>
+        </li>
+    </ul>
+</nav>
+<nav class="nav secondary-nav">
+    <ul class="nav--list secondary-nav--list">
+        <li class="cart--link">
+            <a class="nav--link" [routerLink]="['/cart']">Cart (<span class="cart--count">{{ cartCount }}</span>)</a>
+        </li>
+    </ul>
+</nav>
