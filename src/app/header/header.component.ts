@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -6,20 +6,6 @@ import { CartService } from '../cart.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-  cartCount = 0;
-
-  constructor(private cartService: CartService) { 
-    this.cartService.cartCount$.subscribe(
-      next => {
-        this.cartCount = next;
-        console.log(next);
-      },
-      err => console.log(err),
-    );
-  }
-
-  ngOnInit() {
-    this.cartService.cartCount$.subscribe(val => this.cartCount = val);
-  }
+export class HeaderComponent {
+  constructor(public cartService: CartService) {}
 }

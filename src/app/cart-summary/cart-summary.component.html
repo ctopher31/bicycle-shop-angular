@@ -1,7 +1,6 @@
 <h2>Summary</h2>
-<p>Items: {{ cartCount }}</p>
-<div>Subtotal: ${{ subtotal.toFixed(2) }}</div>
-<div>Shipping: ${{ shipping.toFixed(2) }}</div>
+<p>Items: {{ cartService.cartCount }}</p>
+<div>Subtotal: ${{ cartService.subtotal.toFixed(2) }}</div>
+<div>Shipping: ${{ cartService.shipping.toFixed(2) }}</div>
 <hr />
-<div>Total: ${{ total.toFixed(2) }}</div>
-
+<div>Total: ${{ cartService.total.toFixed(2) }}</div>

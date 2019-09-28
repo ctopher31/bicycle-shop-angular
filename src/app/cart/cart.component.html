@@ -8,16 +8,9 @@
     <section class="cart--section">
         <div class="cart--items">
             <h2>Items</h2>
-            <app-lineitem *ngFor="let item of items"
-                [item]="item"
-                (key)="removeItem($event)">
-            </app-lineitem>
+            <app-lineitem *ngFor="let item of cartService.items" [item]="item"></app-lineitem>
         </div>
-        <app-cart-summary class="cart--summary"
-            [shipping]="shipping"
-            [subtotal]="subtotal"
-            [total]="total"
-            [cartCount]="cartCount">
+        <app-cart-summary class="cart--summary">
         </app-cart-summary>
     </section>
 </div>

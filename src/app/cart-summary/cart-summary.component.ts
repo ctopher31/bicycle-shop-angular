@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-cart-summary',
@@ -6,8 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./cart-summary.component.scss']
 })
 export class CartSummaryComponent {
-  @Input() shipping;
-  @Input() subtotal;
-  @Input() total;
-  @Input() cartCount;
+  constructor(public cartService: CartService) {}
 }

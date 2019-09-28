@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-lineitem',
@@ -7,9 +8,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class LineitemComponent {
   @Input() item;
-  @Output() key = new EventEmitter();
 
-  removeItem(key) {
-    this.key.emit(key);
-  }
+  constructor(public cartService: CartService) {}
 }

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import data from './products';
+import { ProductService } from './product.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +11,7 @@ export class CartService {
   total = 0;
   shipping = 0;
 
-  cartCount$ = of(this.cartCount);
+  constructor(private productService: ProductService) {}
 
   addItem(key) {
     let cart;
@@ -25,7 +24,7 @@ export class CartService {
         return item;
       });
     } else {
-      cart = [...this.items, { ...data.products.filter(product => product.number === key)[0], qty: 1 }]
+      this.productService.getProducts().subscribe(products => cart = [...this.items, { ...products.filter(product => product.number === key)[0], qty: 1 }]);
     }
 
     const subtotal = cart.reduce((accum, item) => (accum += item.qty * (item.onSale === true ? item.salePrice : item.price)), 0);
@@ -35,8 +34,8 @@ export class CartService {
     this.items = cart;
     this.cartCount = cartCount;
     this.subtotal = subtotal;
-    this.total = (subtotal > 0 ? subtotal + data.shipping : 0);
-    this.shipping = (subtotal > 0 ? data.shipping : 0);
+    this.productService.getShipping().subscribe(shipping => this.total = (subtotal > 0 ? subtotal + shipping : 0));
+    this.productService.getShipping().subscribe(shipping => this.shipping = (subtotal > 0 ? shipping : 0));
   }
 
   removeItem(key) {
@@ -58,28 +57,8 @@ export class CartService {
     this.items = cart;
     this.cartCount = cartCount;
     this.subtotal = subtotal;
-    this.total = (subtotal > 0 ? subtotal + data.shipping : 0);
-    this.shipping = (subtotal > 0 ? data.shipping : 0);
-  }
-
-  getItems() {
-    return this.items;
-  }
-
-  getCartCount() {
-    return this.cartCount;
-  }
-
-  getSubTotal() {
-    return this.subtotal;
-  }
-
-  getTotal() {
-    return this.total;
-  }
-
-  getShipping() {
-    return this.shipping;
+    this.productService.getShipping().subscribe(shipping => this.total = (subtotal > 0 ? subtotal + shipping : 0));
+    this.productService.getShipping().subscribe(shipping => this.shipping = (subtotal > 0 ? shipping : 0));
   }
 
   clearCart() {
