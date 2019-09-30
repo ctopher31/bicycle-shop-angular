@@ -1,9 +1,6 @@
 <div class="cart">
     <h1 className="page--heading">
-        <!-- {{ cartCount > 0
-            ? `Your Cart has ${cartCount} Item${cartCount > 1 ? 's' : ''}`
-            : 'Your Cart is Empty'
-        }} -->
+        {{ cartService.cartCount > 0 ? 'Your Cart has ' + cartService.cartCount + ' Item' + (cartService.cartCount > 1 ? 's' : '') : 'Your Cart is Empty' }}
     </h1>
     <section class="cart--section">
         <div class="cart--items">
