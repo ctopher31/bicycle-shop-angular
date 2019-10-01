@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CartService } from '../cart.service';
+import { Cart } from '../cart.model';
 
 @Component({
   selector: 'app-lineitem',
@@ -9,5 +9,5 @@ import { CartService } from '../cart.service';
 export class LineitemComponent {
   @Input() item;
 
-  constructor(public cartService: CartService) {}
+  constructor(public cart: Cart) {}
 }

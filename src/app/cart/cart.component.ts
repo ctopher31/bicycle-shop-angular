@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CartService } from '../cart.service';
+import { Cart } from '../cart.model';
 
 @Component({
   selector: 'app-cart',
@@ -7,5 +7,5 @@ import { CartService } from '../cart.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent {
-  constructor(public cartService: CartService) {}
+  constructor(public cart: Cart) {}
 }

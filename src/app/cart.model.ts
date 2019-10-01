@@ -4,7 +4,7 @@ import { ProductService } from './product.service';
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class Cart {
   items = [];
   cartCount = 0;
   subtotal = 0;
@@ -63,6 +63,9 @@ export class CartService {
 
   clearCart() {
     this.items = [];
-    return this.items;
+    this.cartCount = 0;
+    this.subtotal = 0;
+    this.total = 0;
+    this.shipping = 0;
   }
 }

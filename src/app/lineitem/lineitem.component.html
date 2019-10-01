@@ -7,5 +7,5 @@
         <li class="{{ item.onSale === false ? 'hide' : 'on-sale' }}">Sale Price: ${{ item.salePrice.toFixed(2) }}</li>
         <li>Quantity: {{ item.qty }}</li>
     </ul>
-    <button (click)="cartService.removeItem(item.number)">Remove Item</button>
+    <button (click)="cart.removeItem(item.number)">Remove Item</button>
 </div>
